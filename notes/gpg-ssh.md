@@ -30,3 +30,8 @@ Then, export the ssh key
 ```sh
 gpg --export-ssh-key KEY_ID
 ```
+**Restart the GPG Daemons:**
+```bash
+gpgconf --kill gpg-agent
+gpgconf --kill scdaemon
+```
