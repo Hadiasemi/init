@@ -9,6 +9,7 @@ endif
 
 call plug#begin()
 
+ Plug 'loctvl842/monokai-pro.nvim'
  "Plug 'xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
  "Plug 'wolfgangmehner/c-support', {'for': ['c', 'cpp', 'h', 'hpp'] }
  "Plug 'dense-analysis/ale'
@@ -128,7 +129,16 @@ set nowb
 "colorscheme solarized
 "
 "Koehler colorscheme
-colorscheme koehler
+" colorscheme koehler
+"
+lua << EOF
+require("monokai-pro").setup({
+  filter = "octagon"  -- Available: classic | octagon | pro | machine | ristretto | spectrum
+})
+EOF
+
+colorscheme monokai-pro
+
 autocmd Filetype tex highlight clear texItalStyle
 
 " py-darcula colorthem
