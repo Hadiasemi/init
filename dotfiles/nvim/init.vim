@@ -326,6 +326,9 @@ nnoremap <leader>sd :call CocAction('diagnosticToggle')<CR>
 nnoremap <leader>nd <Plug>(coc-diagnostic-next)
 nnoremap <leader>pd <Plug>(coc-diagnostic-prev)
 
+" Markdown Preview
+nmap <C-s> <Plug>MarkdownPreview
+
 " leap.nvim
 lua require('leap').create_default_mappings()
 
