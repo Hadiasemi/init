@@ -9,6 +9,7 @@ endif
 
 call plug#begin()
 
+ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
  Plug 'loctvl842/monokai-pro.nvim'
  "Plug 'xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
  "Plug 'wolfgangmehner/c-support', {'for': ['c', 'cpp', 'h', 'hpp'] }
