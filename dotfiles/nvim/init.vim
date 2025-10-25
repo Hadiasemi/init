@@ -77,9 +77,18 @@ EOF
 nnoremap <C-n> :NvimTreeToggle<CR>
 nnoremap - :NvimTreeFindFile<CR>:wincmd p<CR>
 
-" --- LEAP ---
+
+" ----------------------------
+" Leap Configuration (Lua)
+" ----------------------------
 lua << EOF
-require("leap").create_default_mappings()
+require('leap').setup({
+  mappings = {
+    basic = true,       -- Enables default motions (s / S)
+    treesitter = true,  -- Treesitter-based motions
+    textobjects = true, -- Textobject motions
+  },
+})
 EOF
 
 " --- TELESCOPE ---
