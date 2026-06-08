@@ -28,9 +28,10 @@ Plug 'nvim-tree/nvim-web-devicons'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.6' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'ggandor/leap.nvim'
+Plug 'https://codeberg.org/andyg/leap.nvim'
 Plug 'tpope/vim-repeat'
 Plug 'mhinz/vim-startify'
+Plug 'terrortylor/nvim-comment'
 
 " End plugin section
 call plug#end()
@@ -82,13 +83,13 @@ nnoremap - :NvimTreeFindFile<CR>:wincmd p<CR>
 " Leap Configuration (Lua)
 " ----------------------------
 lua << EOF
-require('leap').setup({
-  mappings = {
-    basic = true,       -- Enables default motions (s / S)
-    treesitter = true,  -- Treesitter-based motions
-    textobjects = true, -- Textobject motions
-  },
-})
+-- Initialize the plugin settings
+require('leap').setup({})
+
+-- Define the modern, official keymaps for bidirectionally leaping
+vim.keymap.set({'n', 'x', 'o'}, 's', '<Plug>(leap-forward-to)')
+vim.keymap.set({'n', 'x', 'o'}, 'S', '<Plug>(leap-backward-to)')
+vim.keymap.set({'n', 'x', 'o'}, 'gs', '<Plug>(leap-from-window)')
 EOF
 
 " --- TELESCOPE ---
@@ -155,3 +156,10 @@ let g:vimtex_view_general_viewer = 'zathura'
 highlight! link SignColumn LineNr
 let g:gitgutter_set_sign_backgrounds = 1
 let g:gitgutter_sign_allow_clobber = 1
+
+lua << EOF
+require('nvim_comment').setup({
+  marker_padding = true,
+  comment_empty = true
+})
+EOF
