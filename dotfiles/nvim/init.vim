@@ -78,6 +78,10 @@ EOF
 nnoremap <C-n> :NvimTreeToggle<CR>
 nnoremap - :NvimTreeFindFile<CR>:wincmd p<CR>
 
+" --- BUFFER NAVIGATION ---
+nnoremap <silent> <Tab> :bnext<CR>
+nnoremap <silent> <S-Tab> :bprevious<CR>
+
 
 " ----------------------------
 " Leap Configuration (Lua)
